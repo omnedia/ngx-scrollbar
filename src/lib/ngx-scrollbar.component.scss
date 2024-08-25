@@ -1,0 +1,44 @@
+.om-scrollbar {
+  --om-scrollbar-height: 0;
+  --om-scrollbar-top: 0;
+  --om-scrollbar-hover-display: block;
+  position: relative;
+
+  height: 100%;
+
+  .om-scrollbar-bar {
+    position: absolute;
+    display: var(--om-scrollbar-hover-display);
+    width: 0.625rem;
+    height: var(--om-scrollbar-height);
+    top: var(--om-scrollbar-top);
+    background-color: grey;
+    right: -1.5rem;
+    border-radius: 10px;
+    transition: opacity 0.2;
+
+    &:hover,
+    &.om-scrollbar-bar-active {
+      opacity: 0.9;
+    }
+  }
+
+  &:hover > .sidebar-scrollbar {
+    display: block;
+  }
+
+  .om-scrollbar-wrapper {
+    overflow-y: auto;
+    height: 100%;
+
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .om-scrollbar-content {
+    height: fit-content;
+  }
+}

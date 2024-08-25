@@ -1,0 +1,10 @@
+<div class="om-scrollbar" [ngStyle]="style" #OmScrollbarContainer>
+    <div class="om-scrollbar-wrapper" (scroll)="onScroll($event)" #OmScrollbarWrapper>
+        <div class="om-scrollbar-content" #OmScrollbarContent>
+            <ng-content></ng-content>
+        </div>
+    </div>
+
+    <div class="om-scrollbar-bar" [class.om-scrollbar-bar-active]="mouseDown" [ngClass]="styleClass" #OmScrollbar>
+    </div>
+</div>
