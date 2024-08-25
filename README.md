@@ -56,12 +56,13 @@ Use the component in your template:
 ## API
 
 ```html
-<om-scrollbar [styleClass]="'your-custom-class'">
+<om-scrollbar [styleClass]="'your-custom-class'" [onlyShowOnHover]="onlyShowOnHover">
   <ng-content></ng-content>
 </om-scrollbar>
 ```
 
-- styleClass (optional): A custom CSS class to apply to the scrollbar component for additional styling.
+- `styleClass` (optional): A custom CSS class to apply to the scrollbar component for additional styling.
+- `onlyShowOnHover` (optional): Sets if the scrollbar is only visible while you hover the content.
 
 ## Example
 
@@ -125,20 +126,17 @@ om-scrollbar {
 
 
 /* Global styling */
-.custom-scrollbar.om-scrollbar-bar {
-  background-color: #ff6347; /* Tomato color for the scrollbar */
-  width: 0.75rem;
-  border-radius: 12px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
+.custom-scrollbar {
+  background-color: rgb(60, 60, 60) !important;
+  width: 0.5rem !important;
+  border-radius: 12px !important;
+  transition: background-color 0.2s;
 
-.custom-scrollbar .om-scrollbar-bar:hover {
-  opacity: 1; /* While hovering */
-}
-
-.custom-scrollbar .om-scrollbar.om-scrollbar-bar-active {
-  opacity 1; /* While dragging */
+  &:hover,
+  &.om-scrollbar-bar-active {
+    background-color: rgb(80, 80, 80) !important;
+    opacity: 1 !important;
+  }
 }
 ```
 

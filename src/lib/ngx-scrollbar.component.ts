@@ -17,6 +17,11 @@ export class NgxScrollbarComponent implements AfterViewInit {
   @Input('styleClass')
   styleClass?: string;
 
+  @Input('onlyShowOnHover')
+  set onlyShowOnHover(onlyShowOnHover: boolean) {
+    this.style['--om-scrollbar-hover-display'] = onlyShowOnHover ? 'none' : 'block';
+  }
+
   style: any = {};
 
   private scrollPercent = 0;

@@ -15,15 +15,15 @@
     background-color: grey;
     right: -1.5rem;
     border-radius: 10px;
-    transition: opacity 0.2;
+    transition: opacity 0.2s;
 
     &:hover,
     &.om-scrollbar-bar-active {
-      opacity: 0.9;
+      opacity: 0.8;
     }
   }
 
-  &:hover > .sidebar-scrollbar {
+  &:hover > .om-scrollbar-bar {
     display: block;
   }
 
