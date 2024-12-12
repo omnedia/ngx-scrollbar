@@ -1,5 +1,13 @@
 # ngx-scrollbar
 
+<a href="https://ngxui.com" target="_blank" style="display: flex;gap: .5rem;align-items: center;cursor: pointer; padding: 0 0 0 0; height: fit-content;">
+  <img src="https://ngxui.com/assets/img/ngxui-logo.png" style="width: 64px;height: 64px;">
+  <p style="font-weight: bold; padding: 0; margin: 0; font-size: 4rem">NGXUI</p>
+</a>
+
+This Library is part of the NGXUI ecosystem. <br>
+View all available components at https://ngxui.com
+
 `@omnedia/ngx-scrollbar` is an Angular library that provides a customizable and lightweight scrollbar component. This component offers a custom scrollbar with smooth scrolling functionality and allows for full control over its appearance through styling.
 
 ## Features
@@ -22,21 +30,23 @@ npm install @omnedia/ngx-scrollbar
 Import the `NgxScrollbarComponent` in your Angular module or component:
 
 ```typescript
-import { NgxScrollbarComponent } from '@omnedia/ngx-scrollbar';
+import {NgxScrollbarComponent} from '@omnedia/ngx-scrollbar';
 
 @Component({
   ...
-  imports: [
-    ...
-    NgxScrollbarComponent,
-  ],
+    imports:
+[
   ...
+    NgxScrollbarComponent,
+],
+...
 })
 ```
 
 Use the component in your template:
 
 ```html
+
 <om-scrollbar [styleClass]="'custom-scrollbar'">
   <div>
     <!-- Your scrollable content here -->
@@ -56,6 +66,7 @@ Use the component in your template:
 ## API
 
 ```html
+
 <om-scrollbar [styleClass]="'your-custom-class'" [onlyShowOnHover]="onlyShowOnHover">
   <ng-content></ng-content>
 </om-scrollbar>
@@ -67,6 +78,7 @@ Use the component in your template:
 ## Example
 
 ```html
+
 <om-scrollbar [styleClass]="'custom-scrollbar-style'">
   <div>
     <p>Item 1</p>
@@ -90,38 +102,39 @@ The `max-height` is defined by the components parent component.
 In this example, the scrollbar bar is styled to be larger and colored differently:
 
 ```html
+
 <div class="nav-bar">
-    <om-scrollbar styleClass="custom-scrollbar">
-        <div class="nav-items">
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-        </div>
-    </om-scrollbar>
+  <om-scrollbar styleClass="custom-scrollbar">
+    <div class="nav-items">
+      <p>Content</p>
+      <p>Content</p>
+      <p>Content</p>
+      <p>Content</p>
+      <p>Content</p>
+      <p>Content</p>
+      <p>Content</p>
+      <p>Content</p>
+      <p>Content</p>
+    </div>
+  </om-scrollbar>
 </div>
 ```
 
 ```css
 /* Component styling */
 om-scrollbar {
-    height: 100%;
+  height: 100%;
 }
 
 .nav-bar {
-    height: 500px
+  height: 500px
 }
 
 .nav-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 2rem;
 }
 
 
