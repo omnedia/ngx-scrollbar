@@ -1,5 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  signal,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'om-scrollbar',
@@ -7,6 +16,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } 
   imports: [CommonModule],
   templateUrl: "./ngx-scrollbar.component.html",
   styleUrl: "./ngx-scrollbar.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxScrollbarComponent implements AfterViewInit {
   @ViewChild('OmScrollbarContainer') sidebarRef!: ElementRef<HTMLElement>;
@@ -25,7 +35,7 @@ export class NgxScrollbarComponent implements AfterViewInit {
   style: any = {};
 
   private scrollPercent = 0;
-  mouseDown = false;
+  mouseDown = signal(false);
   private lastY?: number;
 
   @HostListener('mousedown', ['$event'])
@@ -34,20 +44,20 @@ export class NgxScrollbarComponent implements AfterViewInit {
 
     if (target.classList.contains('om-scrollbar-bar')) {
       event.preventDefault();
-      this.mouseDown = true;
+      this.mouseDown.set(true);
     }
   }
 
   @HostListener('mouseup')
   onMouseUp() {
     this.lastY = undefined;
-    this.mouseDown = false;
+    this.mouseDown.set(false);
   }
 
   ngAfterViewInit(): void {
     window.addEventListener('mouseup', () => {
       this.lastY = undefined;
-      this.mouseDown = false;
+      this.mouseDown.set(false);
     });
     window.addEventListener('mousemove', (event) => this.onDrag(event));
 
