@@ -83,7 +83,7 @@ export class NgxScrollbarComponent implements AfterViewInit {
   }
 
   onDrag(event: MouseEvent): void {
-    if (!this.mouseDown) {
+    if (!this.mouseDown()) {
       return;
     }
 
